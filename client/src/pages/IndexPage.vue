@@ -5,7 +5,7 @@
       src="../assets/logo.png"
       style="width: 200px; height: 200px"
     />
-    test
+    testsss
   </q-page>
 </template>
 
