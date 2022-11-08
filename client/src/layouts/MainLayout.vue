@@ -34,25 +34,27 @@
       <router-view />
     </q-page-container>
   </q-layout>
+  <NELPJFooter />
 </template>
 
 <script>
 import BannerCompponent from "../components/generals/BannerComponent.vue";
 import { defineComponent, ref } from "vue";
-import EssentialLink from "components/EssentialLink.vue";
+// import EssentialLink from "components/EssentialLink.vue";
+import NELPJFooter from "../components/generals/NELPJFooter.vue";
 
 const linksList = [
   {
     title: "Home",
     caption: "quasar.dev",
-    icon: "school",
+    icon: "home",
     component: "../components/visitor/Homepage.vue",
     // link: "localhost:9001/NELPJ/client/compoonents/visitor/Homepage.vue",
   },
   {
-    title: "Github",
+    title: "Testimonials",
     caption: "github.com/quasarframework",
-    icon: "code",
+    icon: "book",
     link: "https://github.com/quasarframework",
   },
   {
