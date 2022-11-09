@@ -9,5 +9,10 @@ const router = express.Router()
 
 router.get('/users', showUsers)
 router.post('/login', userLogin)
+router.post('/status', (req, res) => {
+  var username = req.body.username
+  var password = req.body.password
+  res.send(`${username} . ${password}`)
+})
 
 export default router

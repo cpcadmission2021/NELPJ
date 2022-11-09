@@ -19,6 +19,7 @@ const routes = [
     path: "/",
     name: "Template",
     component: () => import("../components/visitor/VisitorsTemplate.vue"),
+    // component: () => import("../components/Template.vue"),
     meta: {
       visitorOnly: true,
     },
@@ -54,11 +55,11 @@ const routes = [
         name: "NELPJ Materials",
         component: () => import("../components/visitor/VisitorMaterials.vue"),
       },
-      // {
-      //   path: '/Login',
-      //   name: 'Login',
-      //   component: () => import('../components/visitor/Login.vue'),
-      // },
+      {
+        path: "VisitorLogin",
+        name: "VisitorLogin",
+        component: () => import("../components/visitor/VisitorLogin.vue"),
+      },
     ],
   }, //End of Visitor routes
 
@@ -74,7 +75,7 @@ const routes = [
       {
         path: "",
         name: "Profile",
-        component: () => import("../components/members/Profile.vue"),
+        component: () => import("../components/members/MemberProfile.vue"),
       },
       {
         path: "events",
@@ -121,7 +122,7 @@ const routes = [
       {
         path: "/admin",
         name: "Dashboard",
-        component: () => import("../components/admin/Dashboard.vue"),
+        component: () => import("../components/admin/AdminDashboard.vue"),
       },
       {
         path: "events",
@@ -158,7 +159,7 @@ const routes = [
   //Error 404
   {
     path: "/:catchAll(.*)*",
-    component: () => import("../components/ErrorNotFound.vue"),
+    component: () => import("../components/generals/ErrorNotFound.vue"),
   },
 ];
 
