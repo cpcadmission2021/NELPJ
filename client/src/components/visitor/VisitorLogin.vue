@@ -63,7 +63,7 @@ const userOnlogin = () => {
   // });
 
   // api
-  //   .post("/login", data)
+  //   .post("/VisitorLogin", data)
   //   .then((response) => {
   //     console.log(response.data);
   //   })
@@ -71,14 +71,15 @@ const userOnlogin = () => {
   //     console.log(err);
   //   });
 
-  api.get("/VisitorLogin", data).then((response) => {
-    if (response == 1) {
+  api.post("/VisitorLogin", data).then((response) => {
+    console.log(response);
+    if (response.data == "1") {
       router.push("/admin");
     } else {
       router.push("/VisitorLogin");
     }
     // console.log(response.data);
-    router.push("/member");
+    // router.push("/member");
   });
 };
 </script>

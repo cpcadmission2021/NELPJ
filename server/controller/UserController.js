@@ -2,7 +2,6 @@
 
 // Import function from User Model
 import { getUsers, insertUser, verifyUser } from '../model/User.js'
-//
 
 // Get All Users
 export const showUsers = (req, res) => {
@@ -55,20 +54,15 @@ export const memberHome = (req, res) => {
   const data = {
     username: req.body.username,
     password: req.body.password,
-    // if (this.username == 'admin' && this.password == 'admin'){
-    //   return 1;
-
-    // }
-    // else{
-    //   return 0;
-    // }
   }
-  if (this.username === 'admin' && this.password === 'admin') {
-    console.log('admin on login')
-    return 1
+  // console.log(`admin: ${data.username}`)
+  // console.log(req.query.username)
+  if (data.username == 'admin' && data.password == 'admin') {
+    console.log('admin')
+    res.send('1')
   } else {
-    console.log('other')
-    return 0
+    console.log('not')
+    res.send('0')
   }
 
   // res.send('hi')

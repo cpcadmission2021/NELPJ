@@ -14,9 +14,10 @@ import {
 const router = express.Router()
 
 router.get('/users', showUsers)
-router.post('/VisitorLogin', userLogin)
+// router.post('/VisitorLogin', userLogin)
 
-router.get('/VisitorLogin', memberHome)
+router.post('/VisitorLogin', memberHome)
+
 // router.post('/status', (req, res) => {
 //   var username = req.body.username
 //   var password = req.body.password
