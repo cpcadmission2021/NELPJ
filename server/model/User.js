@@ -1,3 +1,4 @@
+//saving data to the database
 import db from '../config/database.js'
 
 // Get All Users
@@ -32,6 +33,8 @@ export const verifyUser = (data, result) => {
       result(err, null)
     } else {
       result(null, results)
+      // (window.location.href =
+      //   '../../client/src/components/members/MemberTemplate.vue')
     }
   })
 }

@@ -40,7 +40,7 @@ const router = useRouter();
 //stores properties of routes like path and name to array
 const links = [];
 
-console.clear();
+// console.clear();
 //checks if you get your routes
 console.log(router.getRoutes());
 

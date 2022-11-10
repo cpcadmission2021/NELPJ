@@ -1,3 +1,5 @@
+//creating connection to the database
+
 import mysql from 'mysql2'
 
 // create the connection to database
