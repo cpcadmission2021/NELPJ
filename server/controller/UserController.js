@@ -32,38 +32,33 @@ export const createUser = (req, res) => {
 
 export const userLogin = (req, res) => {
   const data = {
-    username: req.body.userName,
+    username: req.body.username,
     password: req.body.password,
-    // res.send(`Username: ${username} Password: ${password}`)
-    // res.json(username: req.body.username),
-
-    // res.send(`${username} . ${password}`),
-    // res.send('succesful login'),
   }
 
   verifyUser(data, (err, result) => {
     if (err) {
       res.send(err)
     } else {
-      res.json(result), res.send('successful login')
+      res.json(result)
     }
   })
 }
 
-export const memberHome = (req, res) => {
-  const data = {
-    username: req.body.username,
-    password: req.body.password,
-  }
-  // console.log(`admin: ${data.username}`)
-  // console.log(req.query.username)
-  if (data.username == 'admin' && data.password == 'admin') {
-    console.log('admin')
-    res.send('1')
-  } else {
-    console.log('not')
-    res.send('0')
-  }
+// export const memberHome = (req, res) => {
+//   const data = {
+//     username: req.body.username,
+//     password: req.body.password,
+//   }
+//   // console.log(`admin: ${data.username}`)
+//   // console.log(req.query.username)
+//   if (data.username == 'admin' && data.password == 'admin') {
+//     console.log('admin')
+//     res.send('1')
+//   } else {
+//     console.log('not')
+//     res.send('0')
+//   }
 
-  // res.send('hi')
-}
+// res.send('hi')
+//}

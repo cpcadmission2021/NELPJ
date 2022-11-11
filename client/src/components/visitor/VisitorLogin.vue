@@ -4,17 +4,25 @@
     <input v-model="password" placeholder="password" /> -->
     <q-input
       v-model="username"
-      :loading="LoadUsername"
-      :disable="LoadUsername"
+      :loading="Load"
+      :disable="Load"
       label="username"
+      name="username"
     />
     <q-input
       v-model="password"
-      :loading="LoadPassword"
-      :disable="LoadPassword"
+      :loading="Load"
+      :disable="Load"
       label="password"
+      name="pass"
     />
-    <q-btn @click="userOnlogin" :loading="LoadLogin" :disable="LoadLogin">Login</q-btn>
+    <q-btn @click="userOnlogin" :loading="Load" :disable="Load">Login</q-btn>
+
+    <!-- <div>
+      {{ counterStore.counter }}
+      <q-btn @click="counterStore.increment()">+</q-btn>
+      <q-btn @click="counterStore.decrement()">-</q-btn>
+    </div> -->
   </div>
 </template>
 
@@ -23,64 +31,73 @@
 import { ref } from "vue";
 import { api } from "../../boot/axios.js";
 import { useRouter, useRoute } from "vue-router";
+import { useUserStore } from "../../stores/UserStore.js";
 
 const routes = useRoute();
 const router = useRouter();
+const UserStore = useUserStore();
+
+// console.log(counterStore.counter);
 
 //variable declaration
 const username = ref(null);
 const password = ref(null);
 
-const LoadUsername = ref(false);
-const LoadPassword = ref(false);
-const LoadLogin = ref(false);
+const Load = ref(false);
 
-//onclick function
+// //onclick function
+// const increment = () => {
+//   counterStore.counter++;
+// };
+// const decrement = () => {
+//   counterStore.counter--;
+// };
 const userOnlogin = () => {
   //getting values from form storing it to js variable
-  LoadUsername.value = true;
-  LoadPassword.value = true;
-  LoadLogin.value = true;
+  Load.value = true;
+
   const data = {
     username: username.value,
     password: password.value,
   };
 
   //communitcating with the server
-  console.log(data);
-  // api
-  //   .post("/login", data)
-  //   .then((response) => {
-  //     console.log(response.data);
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
+  // console.log(data);
 
   // api.get("/member", data).then((response) => {
   //   console.log(response.data);
   //   router.push("/member");
   // });
 
-  // api
-  //   .post("/VisitorLogin", data)
-  //   .then((response) => {
-  //     console.log(response.data);
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
+  // export var isAuthenticated = false;
 
-  api.post("/VisitorLogin", data).then((response) => {
-    console.log(response);
-    if (response.data == "1") {
-      router.push("/admin");
-    } else {
-      router.push("/VisitorLogin");
-    }
-    // console.log(response.data);
-    // router.push("/member");
-  });
+  api
+    .post("/VisitorLogin", data)
+    .then((response) => {
+      console.log(response);
+
+      if (response.data.length > 0) {
+        console.log(1);
+        UserStore.loginStatus = true;
+        if (response.data[0].role == 1) {
+          UserStore.loginStatus = true;
+          UserStore.role = 1;
+          router.push("/admin");
+        } else if (response.data[0].role == 0) {
+          UserStore.loginStatus = true;
+          UserStore.role = 0;
+          router.push("/member");
+        }
+      } else {
+        Load.value = false;
+        username.value = null;
+        password.value = null;
+      }
+    })
+    .catch((err) => {
+      console.log("error");
+      console.log(err);
+    });
 };
 </script>
 <style></style>

@@ -22,6 +22,7 @@ const routes = [
     // component: () => import("../components/Template.vue"),
     meta: {
       visitorOnly: true,
+      requiresAuth: false,
     },
     children: [
       {
@@ -69,7 +70,8 @@ const routes = [
     name: "member",
     component: () => import("../components/members/MemberTemplate.vue"),
     meta: {
-      MembersOnly: true,
+      permission: "member",
+      requiresAuth: true,
     },
     children: [
       {
@@ -116,7 +118,8 @@ const routes = [
     name: "home",
     component: () => import("../components/admin/AdminTemplate.vue"),
     meta: {
-      AdminOnly: true,
+      permission: "admin",
+      requiresAuth: true,
     },
     children: [
       {
@@ -127,12 +130,12 @@ const routes = [
       {
         path: "events",
         name: "events",
-        component: () => import("../components/admin/Events.vue"),
+        component: () => import("../components/admin/AdminEvents.vue"),
       },
       {
         path: "activities",
         name: "activities",
-        component: () => import("../components/admin/Activities.vue"),
+        component: () => import("../components/admin/AdminActivities.vue"),
       },
       {
         path: "fndsInfo",
@@ -147,12 +150,12 @@ const routes = [
       {
         path: "sponsorships",
         name: "sponsorships",
-        component: () => import("../components/admin/Sponsorships.vue"),
+        component: () => import("../components/admin/AdminSponsorships.vue"),
       },
       {
         path: "members",
         name: "members",
-        component: () => import("../components/admin/Members.vue"),
+        component: () => import("../components/admin/AdminMembers.vue"),
       },
     ],
   }, //End of admin routes

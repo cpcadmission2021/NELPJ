@@ -25,17 +25,18 @@
       </div>
     </div>
   </nav>
+  {{ counterStore.counter }}
 </template>
 <script setup>
 // import BannerComponent from '../BannerComponent.vue'
 
 //imports your routes from folder router/routes.
 import { useRoute, useRouter } from "vue-router";
-
+import { useCounterStore } from "../../stores/example-store.js";
 //declaring imported items
 const route = useRoute();
 const router = useRouter();
-
+const counterStore = useCounterStore();
 //s
 const links = [];
 

@@ -7,7 +7,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'sample',
+  database: 'nelpj',
 })
 
 export default db
