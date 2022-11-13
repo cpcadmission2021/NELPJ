@@ -1,29 +1,24 @@
 <template>
-  <footer class="bg-light text-center text-white">
-    <div class="container p-4 pb-0 text-black text-muted" style="font-size: 14px">
-      <h6>New Earth of Love Peace and Joy</h6>
-      <p class="fst-italic">
-        "Dear people of God in the Philippines, go forth in the power of the Holy Spirit
-        to renew the face of the earth- your own world first…your families, your
-        communities, your nation... and the wider world of Asia, toward which the church
-        in the Philippines has a special responsibility before the Lord; and the world
-        beyond, working through faith for the renewal of God's whole creation."
-        <br />
-        --Blessed Pope John Paul II, Jan. 15, 1995.
-        <br /><br />
-        TOTUS TUUS !
-      </p>
-
-      <!-- Section: Social media -->
-      <section class="mb-4">
+  <q-layout>
+    <q-footer elevated class="bg-grey-10 text-white">
+      <q-toolbar>
+        <q-toolbar-title>
+          <!-- <q-avatar>
+            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
+          </q-avatar> -->
+          <div align="center">© Copyright 2023 NELPJ. All rights reserved.</div>
+        </q-toolbar-title>
+      </q-toolbar>
+      <section align="center" class="grey-12" padding="10px">
         <!-- Facebook -->
         <RouterLink to="facebook.com">
           <img
             border="0"
             alt="facebook logo"
             src="src/assets/footerImages/fblogo.png"
-            width="30"
-            height="30"
+            width="40"
+            height="40"
+            href="https://www.facebook.com/profile.php?id=100064466929007"
           />
         </RouterLink>
         <!-- Twitter -->
@@ -42,8 +37,8 @@
             border="0"
             alt="gmail logo"
             src="src/assets/footerImages/gmaillogo.png"
-            width="30"
-            height="30"
+            width="40"
+            height="40"
           />
         </RouterLink>
         <!-- Donation -->
@@ -52,22 +47,11 @@
             border="0"
             alt="donate logo"
             src="src/assets/footerImages/donate.png"
-            width="25"
-            height="25"
+            width="40"
+            height="40"
           />
         </RouterLink>
       </section>
-    </div>
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.3)">
-      © Copyright 2023 NELPJ. All rights reserved.
-    </div>
-    <!-- Copyright -->
-  </footer>
+    </q-footer>
+  </q-layout>
 </template>
-<script></script>
-<style scoped>
-img {
-  margin: 10px;
-}
-</style>

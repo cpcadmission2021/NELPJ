@@ -57,9 +57,9 @@ const routes = [
         component: () => import("../components/visitor/VisitorMaterials.vue"),
       },
       {
-        path: "VisitorLogin",
-        name: "VisitorLogin",
-        component: () => import("../components/visitor/VisitorLogin.vue"),
+        path: "UserLogin",
+        name: "UserLogin",
+        component: () => import("../components/visitor/UserLogin.vue"),
       },
     ],
   }, //End of Visitor routes
@@ -70,6 +70,7 @@ const routes = [
     name: "member",
     component: () => import("../components/members/MemberTemplate.vue"),
     meta: {
+      memberOnly: true,
       permission: "member",
       requiresAuth: true,
     },
@@ -118,6 +119,7 @@ const routes = [
     name: "home",
     component: () => import("../components/admin/AdminTemplate.vue"),
     meta: {
+      adminOnly: true,
       permission: "admin",
       requiresAuth: true,
     },

@@ -3,7 +3,14 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
+        <q-btn
+          flat
+          dense
+          round
+          icon="menu"
+          aria-label="Menu"
+          @click="toggleLeftDrawer"
+        />
 
         <q-toolbar-title> NELPJ </q-toolbar-title>
 
@@ -87,12 +94,10 @@ import NELPJFooter from "../components/generals/NELPJFooter.vue";
 const leftDrawerOpen = ref(false);
 const routes = useRoute();
 
-
-
 //       toggleLeftDrawer() {
 //         leftDrawerOpen.value = !leftDrawerOpen.value;
 //       },
 function toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
+  leftDrawerOpen.value = !leftDrawerOpen.value;
+}
 </script>

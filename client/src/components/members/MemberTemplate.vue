@@ -1,13 +1,10 @@
 |
 <template>
-  <BannerComponent />
-  <MemberMenus />
-  <RouterView />
+  <MHeaderMenus />
   <NELPJFooter />
 </template>
 <script setup>
-import BannerComponent from "../generals/BannerComponent.vue";
-import MemberMenus from "./MemberMenus.vue";
+import MHeaderMenus from "./MHeaderMenus.vue";
 import NELPJFooter from "../generals/NELPJFooter.vue";
 </script>
 <style></style>
