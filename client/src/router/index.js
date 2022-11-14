@@ -59,7 +59,7 @@ export default route(function (/* { store, ssrContext } */) {
       }
     } else {
       if (to.matched.some((record) => record.meta.requiresAuth))
-        next({ path: "/VisitorLogin" });
+        next({ path: "/" });
       else next();
     }
   });

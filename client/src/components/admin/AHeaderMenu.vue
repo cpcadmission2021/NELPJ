@@ -7,25 +7,28 @@
 
       <q-toolbar>
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
-        <q-toolbar-title> Menus </q-toolbar-title>
+        <q-toolbar-title align="left"> Menus </q-toolbar-title>
+        <q-toolbar-title align="right"><UserLogout /></q-toolbar-title>
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" side="left" overlay bordered>
-      <q-list
-        bordered
-        padding
-        class="rounded-borders h-nav"
-        v-for="link in links"
-        :key="link.name"
-      >
-        <q-item clickable v-ripple>
+    <q-drawer
+      v-model="leftDrawerOpen"
+      side="left"
+      overlay
+      bordered
+      class="bg-light-green-10 text-white"
+    >
+      <!-- drawer content -->
+      <q-list bordered padding v-for="link in links" :key="link.name">
+        <q-item clickable v-ripple align="center" class="text-white">
+          <!-- <q-btn > -->
           <RouterLink class="nav-link" :to="link.to">
             {{ link.name }}
           </RouterLink>
+          <!-- </q-btn> -->
         </q-item>
       </q-list>
-      <!-- drawer content -->
     </q-drawer>
 
     <q-page-container>
@@ -38,19 +41,27 @@ import { onBeforeMount, ref } from "vue";
 //imports your routes from folder router/routes.
 import { useRoute, useRouter } from "vue-router";
 import { useCounterStore } from "../../stores/example-store.js";
+import UserLogout from "../generals/UserLogout.vue";
 
 const router = useRouter();
 const links = [];
 const routes = router.getRoutes();
 
+//loops all routes
 routes.forEach((r) => {
+  //if routes has meta of adminOnly
   if (r.meta.adminOnly) {
+    //loops children having meta of adminOnly
     r.children.forEach((child) => {
-      if (child.path == "") {
+      //if child path is equals to /admin
+      if (child.path == "/admin") {
         links.push({
           to: "/",
           name: child.name,
         });
+        console.log(links);
+        // const text = "if result";
+        // console.log(text.concat(links));
       } else {
         links.push({
           to: child.path,

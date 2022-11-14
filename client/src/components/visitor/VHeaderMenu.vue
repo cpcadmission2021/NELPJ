@@ -19,7 +19,7 @@
         v-for="link in links"
         :key="link.name"
       >
-        <q-item clickable v-ripple>
+        <q-item clickable v-ripple class="text-center">
           <RouterLink class="nav-link" :to="link.to">
             {{ link.name }}
           </RouterLink>
@@ -48,12 +48,15 @@ const links = [];
 
 const routes = router.getRoutes();
 
+//loops all routes
 routes.forEach((r) => {
+  //if route has meta of visitorOnly
   if (r.meta.visitorOnly) {
+    //loop path's children
     r.children.forEach((child) => {
       if (child.path == "") {
         links.push({
-          to: "/",
+          to: "",
           name: child.name,
         });
       } else {

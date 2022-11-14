@@ -1,20 +1,5 @@
 const routes = [
-  // {
-  //   path: '/',
-  //   component: () => import('layouts/MainLayout.vue'),
-  //   children: [
-  //     { path: '', component: () => import('pages/IndexPage.vue') }
-  //   ]
-  // },
-
-  // // Always leave this as last one,
-  // // but you can also remove it
-  // {
-  //   path: '/:catchAll(.*)*',
-  //   component: () => import('pages/ErrorNotFound.vue')
-  // }
-
-  //--------------------------------Visitor routes---------------------------------
+  //--------------------------------VISITOR ROUTES---------------------------------
   {
     path: "/",
     name: "Template",
@@ -58,16 +43,16 @@ const routes = [
       },
       {
         path: "UserLogin",
-        name: "UserLogin",
+        name: "Login",
         component: () => import("../components/visitor/UserLogin.vue"),
       },
     ],
   }, //End of Visitor routes
 
-  //--------------------------------Members routes---------------------------------
+  //--------------------------------MEMBER ROUTES---------------------------------
   {
     path: "/member",
-    name: "member",
+    name: "member home",
     component: () => import("../components/members/MemberTemplate.vue"),
     meta: {
       memberOnly: true,
@@ -76,44 +61,44 @@ const routes = [
     },
     children: [
       {
-        path: "",
+        path: "/member",
         name: "Profile",
         component: () => import("../components/members/MemberProfile.vue"),
       },
       {
-        path: "events",
+        path: "/events",
         name: "Events",
-        component: () => import("../components/members/Events.vue"),
+        component: () => import("../components/members/MemberEvents.vue"),
       },
       {
-        path: "activities",
+        path: "/activities",
         name: "Activities",
-        component: () => import("../components/members/Activities.vue"),
+        component: () => import("../components/members/MemberActivities.vue"),
       },
       {
-        path: "aboutUs",
+        path: "/aboutUs",
         name: "AboutUs",
         component: () => import("../components/AboutUs.vue"),
       },
       {
-        path: "materials",
+        path: "/materials",
         name: "Materials",
         component: () => import("../components/members/Materials.vue"),
       },
       {
-        path: "sponsorships",
+        path: "/sponsorships",
         name: "Sponsorships",
         component: () => import("../components/members/Sponsorships.vue"),
       },
       {
-        path: "messages",
+        path: "/messages",
         name: "messages",
         component: () => import("../components/members/Messages.vue"),
       },
     ],
   }, //End of member routes
 
-  //--------------------------------Admin routes---------------------------------
+  //--------------------------------ADMIN ROUTES---------------------------------
   {
     path: "/admin",
     name: "home",
@@ -130,37 +115,51 @@ const routes = [
         component: () => import("../components/admin/AdminDashboard.vue"),
       },
       {
-        path: "events",
-        name: "events",
+        path: "/admin/events",
+        name: "Events",
         component: () => import("../components/admin/AdminEvents.vue"),
       },
       {
-        path: "activities",
-        name: "activities",
+        path: "/activities",
+        name: "Activities",
         component: () => import("../components/admin/AdminActivities.vue"),
       },
       {
-        path: "fndsInfo",
-        name: "foundationsInfo",
+        path: "/fndsInfo",
+        name: "FoundationsInfo",
         component: () => import("../components/admin/FndsInfo.vue"),
       },
       {
-        path: "materials",
-        name: "materials",
+        path: "/materials",
+        name: "Materials",
         component: () => import("../components/admin/AdminMaterials.vue"),
       },
       {
-        path: "sponsorships",
-        name: "sponsorships",
+        path: "/sponsorships",
+        name: "Sponsorships",
         component: () => import("../components/admin/AdminSponsorships.vue"),
       },
       {
-        path: "members",
-        name: "members",
+        path: "/members",
+        name: "Members",
         component: () => import("../components/admin/AdminMembers.vue"),
       },
     ],
   }, //End of admin routes
+  //----------------------------LOGOUT-----------------------------------
+  // {
+  //   path: "/logout",
+  //   name: "Logout",
+  //   component: () => import("../components/visitor/VisitorHomepage.vue"),
+  //   meta: {
+  //   },
+  //   children: [
+  //     {
+  //       path: "",
+  //       name: "Profile",
+  //       component: () => import("../components/members/MemberProfile.vue"),
+  //     },
+  //   }
   //Error 404
   {
     path: "/:catchAll(.*)*",

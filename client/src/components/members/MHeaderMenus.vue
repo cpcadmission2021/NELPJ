@@ -8,6 +8,7 @@
       <q-toolbar>
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
         <q-toolbar-title> Menus </q-toolbar-title>
+        <q-toolbar-title align="right"><UserLogout /></q-toolbar-title>
       </q-toolbar>
     </q-header>
 
@@ -37,6 +38,7 @@
 import { onBeforeMount, ref } from "vue";
 //imports your routes from folder router/routes.
 import { useRoute, useRouter } from "vue-router";
+import UserLogout from "../generals/UserLogout.vue";
 
 const router = useRouter();
 const links = [];
@@ -45,7 +47,7 @@ const routes = router.getRoutes();
 routes.forEach((r) => {
   if (r.meta.memberOnly) {
     r.children.forEach((child) => {
-      if (child.path == "") {
+      if (child.path == "/member") {
         links.push({
           to: "/",
           name: child.name,
